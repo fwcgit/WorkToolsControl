@@ -13,6 +13,7 @@
 #include <termios.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <assert.h>
 
 int open_serial_port(const char *tty)
 {
@@ -105,6 +106,7 @@ void send_data(int fd,char *buff,int len)
 
 void usart_close(const int fd)
 {
+    assert(fd);
     close(fd);
 }
 
