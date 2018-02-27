@@ -9,8 +9,13 @@
 #include "usart_read_thread.h"
 #include "usart.h"
 #include <unistd.h>
+#include <stdlib.h>
+#include <string.h>
+
 void *thread_read(void *args)
 {
+    int read_len;
+    char buff[100];
     
     int fd = open_serial_port("/dev/ttyUSB0");
     init_seral_params(fd, 115200);
@@ -19,9 +24,8 @@ void *thread_read(void *args)
     
     while(1)
     {
-        int read_len;
-        char buff[100];
-        read_len = read(fd, buff, 100);
+        memset(buff,0,sizeof(char)*100);
+        read_len = usart_read(fd, buff, 100);
         
         if(read_len > 0)
         {
