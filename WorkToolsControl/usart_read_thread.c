@@ -10,6 +10,8 @@
 #include "usart.h"
 void *thread_read(void *args)
 {
+    printf("thread fd = %d \r\n",*((int *)args));
+    
     while(1)
     {
         int read_len;
