@@ -48,8 +48,5 @@ int main(int argc, const char * argv[]) {
         
         sleep(1);
     }
-    
-    printf("%d\r\n",fd);
-    
     return 0;
 }
