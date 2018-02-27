@@ -123,7 +123,7 @@ int  usart_read(int fd,char *buff,int len)
     printf("select res = %d \r\n" ,res);
     
     if(res){
-        read_len = usart_read(fd, buff, len);
+        read_len = read(fd, buff, len);
         return read_len;
     }else{
         return -1;
