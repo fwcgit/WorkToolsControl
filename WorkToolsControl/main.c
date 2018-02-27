@@ -11,12 +11,12 @@
 
 int main(int argc, const char * argv[]) {
   
-    int fd = open_serial_port("/dev/tty.usbserial");
+    int fd = open_serial_port("/dev/ttyUSB0");
     init_seral_params(fd, 115200);
     
     char data[3];
     data[0] = 0x3b;
-    data[1] = 0x01;
+    data[1] = 0x00;
     data[2] = 0x0d;
     
     send_data(fd, data, 3);
