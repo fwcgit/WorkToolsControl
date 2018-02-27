@@ -8,6 +8,7 @@
 
 #include "usart_read_thread.h"
 #include "usart.h"
+#include <unistd.h>
 void *thread_read(void *args)
 {
     printf("thread fd = %d \r\n",*((int *)args));
@@ -16,7 +17,7 @@ void *thread_read(void *args)
     {
         int read_len;
         char buff[100];
-        read_len = usart_read(*((int*)args), buff, 100);
+        read_len = read(*((int*)args), buff, 100);
         
         if(read_len > 0)
         {
