@@ -21,7 +21,7 @@ void *thread_read(void *args)
         
         if(read_len > 0)
         {
-            printf("rece data = %s ----- len = %d \n",buff,read_len);
+            printf("rece data = %s ----- len = %d \r\n",buff,read_len);
         }
        
     }
