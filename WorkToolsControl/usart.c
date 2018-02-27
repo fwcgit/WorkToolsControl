@@ -74,12 +74,11 @@ int init_seral_params(int fd,int speed)
     port_attr.c_cflag &= ~CSIZE;
     port_attr.c_cflag |= CS8;//8位数据
     port_attr.c_cflag &= ~PARENB;//无奇偶校验
-    port_attr.c_iflag &= ~INPCK;
     port_attr.c_cflag &= ~CSTOPB;//停止1位
     port_attr.c_cc[VTIME] = 0;
     port_attr.c_cc[VMIN]  = 0;
-    port_attr.c_oflag &= ~OPOST;//原始数据输出
-    port_attr.c_iflag &= ~(ICANON | ISIG);
+    port_attr.c_oflag = 0;//原始数据输出
+    port_attr.c_iflag = 0;
     
     //如果发生数据溢出，接收数据，但是不再读取 刷新收到的数据但是不读
     tcflush(fd,TCIFLUSH);
