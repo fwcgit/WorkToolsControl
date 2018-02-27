@@ -25,6 +25,7 @@ int main(int argc, const char * argv[]) {
     while(1)
     {
        
+        memset(buff, 0, sizeof(char)*100);
         read_len = read(fd, buff, 100);
         
         if(read_len > 0)
