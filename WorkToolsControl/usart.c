@@ -116,10 +116,11 @@ int  usart_read(int fd,char *buff,int len)
     struct timeval timeout;
     FD_ZERO(&inputs);
     FD_SET(fd, &inputs);
-    timeout.tv_sec = 3;
-    timeout.tv_usec=500000;
+    timeout.tv_sec = 10;
+    timeout.tv_usec=0;
     
     res = select(fd+1,&inputs,NULL,NULL,&timeout);
+    printf("select res = %d \r\n" ,res);
     
     if(res){
         read_len = read(fd, buff, len);
