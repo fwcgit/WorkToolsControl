@@ -15,7 +15,7 @@ void *thread_read(void *args)
     int fd = open_serial_port("/dev/ttyUSB0");
     init_seral_params(fd, 115200);
     
-    printf("thread fd = %d \r\n",*((int *)args));
+    printf("thread fd = %d \r\n",fd);
     
     while(1)
     {
