@@ -23,8 +23,6 @@ void *thread_read(void *args)
         char buff[100];
         read_len = read(fd, buff, 100);
         
-        printf("read_len = %d \r\n",read_len);
-        
         if(read_len > 0)
         {
             printf("rece data = %s ----- len = %d \r\n",buff,read_len);
