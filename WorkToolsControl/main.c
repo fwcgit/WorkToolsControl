@@ -20,7 +20,7 @@ int main(int argc, const char * argv[]) {
     
     while(1)
     {
-        gets(input);
+        fgets(input, 10, stdin);
         if(strstr(input, "off"))
         {
             data[0] = 0x3b;
