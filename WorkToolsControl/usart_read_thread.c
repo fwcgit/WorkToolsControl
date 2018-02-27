@@ -15,14 +15,10 @@ void *thread_read(void *args)
         int read_len;
         char buff[100];
         read_len = usart_read(*((int*)args), buff, 100);
-        if(read_len == 0)
-        {
-            printf("time out \n");
-        }
         
         if(read_len > 0)
         {
-            printf("rece data = %s\n",buff);
+            printf("rece data = %s ----- len = %d \n",buff,read_len);
         }
        
     }
