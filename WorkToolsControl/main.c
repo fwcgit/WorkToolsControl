@@ -24,7 +24,8 @@ int main(int argc, const char * argv[]) {
     
     while(1)
     {
-        fgets(input, 10, stdin);
+        scanf("%s",input);
+    
         if(strstr(input, "off"))
         {
             data[0] = 0x3b;
