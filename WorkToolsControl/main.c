@@ -19,49 +19,36 @@ int main(int argc, const char * argv[]) {
     
     int fd = open_serial_port("/dev/ttyUSB0");
     init_seral_params(fd, 115200);
-    //start_thread_read(fd);
+    start_thread_read(fd);
     printf("main fd = %d \r\n",fd);
-    
+
+    char data[3];
+    char *input = (char*)malloc(sizeof(char)*10);
+
     while(1)
     {
-       
-        memset(buff, 0, sizeof(char)*100);
-        read_len = read(fd, buff, 100);
-        
-        if(read_len > 0)
+        scanf("%s",input);
+
+        if(strstr(input, "off"))
         {
-            printf("rece data = %s ----- len = %d \r\n",buff,read_len);
+            data[0] = 0x3b;
+            data[1] = 0x00;
+            data[2] = 0x0d;
+            send_data(fd, data, 3);
         }
-        
+        else if(strstr(input, "on"))
+        {
+            data[0] = 0x3b;
+            data[1] = 0x01;
+            data[2] = 0x0d;
+            send_data(fd, data, 3);
+        }
+        else if(strstr(input, "exit"))
+        {
+            usart_close(fd);
+            break;
+        }
     }
-    
-//    char data[3];
-//    char *input = (char*)malloc(sizeof(char)*10);
-//
-//    while(1)
-//    {
-//        scanf("%s",input);
-//
-//        if(strstr(input, "off"))
-//        {
-//            data[0] = 0x3b;
-//            data[1] = 0x00;
-//            data[2] = 0x0d;
-//            send_data(fd, data, 3);
-//        }
-//        else if(strstr(input, "on"))
-//        {
-//            data[0] = 0x3b;
-//            data[1] = 0x01;
-//            data[2] = 0x0d;
-//            send_data(fd, data, 3);
-//        }
-//        else if(strstr(input, "exit"))
-//        {
-//            usart_close(fd);
-//            break;
-//        }
-//    }
     
     printf("%d\r\n",fd);
     

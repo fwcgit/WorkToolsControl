@@ -119,11 +119,11 @@ int  usart_read(int fd,char *buff,int len)
     timeout.tv_sec = 10;
     timeout.tv_usec=0;
     
-    res = select(fd+1,&inputs,&inputs,NULL,&timeout);
+    res = select(fd+1,&inputs,NULL,NULL,&timeout);
     printf("select res = %d \r\n" ,res);
     
     if(res){
-        read_len = read(fd, buff, len);
+        read_len = usart_read(fd, buff, len);
         return read_len;
     }else{
         return -1;
