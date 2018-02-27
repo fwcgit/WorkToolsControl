@@ -79,7 +79,6 @@ int init_seral_params(int fd,int speed)
     port_attr.c_cc[VTIME] = 0;
     port_attr.c_cc[VMIN]  = 0;
     port_attr.c_oflag &= ~OPOST;//原始数据输出
-    port_attr.c_iflag &= (INLCR | IGNCR | ICRNL);
     port_attr.c_lflag &= ~(ICANON | ECHO | ECHOE | ISIG);
     
     //如果发生数据溢出，接收数据，但是不再读取 刷新收到的数据但是不读
