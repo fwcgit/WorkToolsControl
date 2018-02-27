@@ -19,7 +19,7 @@ int main(int argc, const char * argv[]) {
     
     int fd = open_serial_port("/dev/ttyUSB0");
     init_seral_params(fd, 115200);
-    start_thread_read(fd);
+    //start_thread_read(fd);
     printf("main fd = %d \r\n",fd);
     
     while(1)
