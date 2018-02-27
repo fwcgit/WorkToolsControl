@@ -27,27 +27,29 @@ int main(int argc, const char * argv[]) {
 
     while(1)
     {
-        scanf("%s",input);
-
-        if(strstr(input, "off"))
-        {
-            data[0] = 0x3b;
-            data[1] = 0x00;
-            data[2] = 0x0d;
-            send_data(fd, data, 3);
-        }
-        else if(strstr(input, "on"))
-        {
-            data[0] = 0x3b;
-            data[1] = 0x01;
-            data[2] = 0x0d;
-            send_data(fd, data, 3);
-        }
-        else if(strstr(input, "exit"))
-        {
-            usart_close(fd);
-            break;
-        }
+//        scanf("%s",input);
+//
+//        if(strstr(input, "off"))
+//        {
+//            data[0] = 0x3b;
+//            data[1] = 0x00;
+//            data[2] = 0x0d;
+//            send_data(fd, data, 3);
+//        }
+//        else if(strstr(input, "on"))
+//        {
+//            data[0] = 0x3b;
+//            data[1] = 0x01;
+//            data[2] = 0x0d;
+//            send_data(fd, data, 3);
+//        }
+//        else if(strstr(input, "exit"))
+//        {
+//            usart_close(fd);
+//            break;
+//        }
+        
+        sleep(1);
     }
     
     printf("%d\r\n",fd);
