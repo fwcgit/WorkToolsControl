@@ -118,20 +118,15 @@ int  usart_read(int fd,char *buff,int len)
     FD_SET(fd, &inputs);
     timeout.tv_sec = 3;
     timeout.tv_usec=500000;
+    
     res = select(fd+1,&inputs,NULL,NULL,&timeout);
-    switch (res) {
-        case 0:
-            printf("time out \n");
-            break;
-        case -1:
-            perror("read error");
-            return -1;
-            break;
-        default:
-            read_len = read(fd, buff, len);
-            return read_len;
+    
+    if(res){
+        read_len = read(fd, buff, len);
+        return read_len;
+    }else{
+        return -1;
     }
-    return len;
 }
 
 void start_thread_read(int fd)
