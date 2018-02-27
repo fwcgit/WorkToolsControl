@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "usart.h"
 #include <string.h>
+#include <stdlib.h>
 
 int main(int argc, const char * argv[]) {
   
