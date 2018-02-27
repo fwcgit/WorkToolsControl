@@ -22,8 +22,9 @@ void *thread_read(void *args)
         
         if(read_len > 0)
         {
-            printf(buff);
+            printf("rece data = %s\n",buff);
         }
        
     }
+    return (void*)NULL;
 }
