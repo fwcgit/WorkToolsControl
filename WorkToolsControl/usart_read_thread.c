@@ -11,13 +11,17 @@
 #include <unistd.h>
 void *thread_read(void *args)
 {
+    
+    int fd = open_serial_port("/dev/ttyUSB0");
+    init_seral_params(fd, 115200);
+    
     printf("thread fd = %d \r\n",*((int *)args));
     
     while(1)
     {
         int read_len;
         char buff[100];
-        read_len = read(*((int*)args), buff, 100);
+        read_len = read(fd, buff, 100);
         
         printf("read_len = %d \r\n",read_len);
         

@@ -130,10 +130,10 @@ int  usart_read(int fd,char *buff,int len)
     }
 }
 
-void start_thread_read(int fd)
+void usart_thread()
 {
     pthread_t pid;
-    pthread_create(&pid, NULL, thread_read, &fd);
+    pthread_create(&pid, NULL, thread_read, (void*)NULL);
 }
 
 void usart_close(const int fd)
