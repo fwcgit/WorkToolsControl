@@ -11,10 +11,13 @@
 #include <string.h>
 #include <stdlib.h>
 
+
 int main(int argc, const char * argv[]) {
   
     int fd = open_serial_port("/dev/ttyUSB0");
     init_seral_params(fd, 115200);
+    start_thread_read(fd);
+    
     char data[3];
     char *input = (char*)malloc(sizeof(char)*10);
     

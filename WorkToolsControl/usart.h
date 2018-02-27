@@ -13,4 +13,6 @@ int open_serial_port(const char *tty);
 int init_seral_params(int fd,int speed);
 void send_data(int fd,char *buff,int len);
 void usart_close(const int fd);
+int  usart_read(int fd,char *buff,int len);
+void start_thread_read(int fd);
 #endif /* usart_h */

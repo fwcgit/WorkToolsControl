@@ -14,6 +14,11 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <assert.h>
+#include <sys/ioctl.h>
+#include <sys/types.h>
+#include <sys/time.h>
+#include <pthread.h>
+#include "usart_read_thread.h"
 
 int open_serial_port(const char *tty)
 {
@@ -102,6 +107,37 @@ void send_data(int fd,char *buff,int len)
         perror("write fail");
     }
     
+}
+
+int  usart_read(int fd,char *buff,int len)
+{
+    int res = 0,read_len;
+    fd_set inputs;
+    struct timeval timeout;
+    FD_ZERO(&inputs);
+    FD_SET(fd, &inputs);
+    timeout.tv_sec = 3;
+    timeout.tv_usec=500000;
+    res = select(fd+1,&inputs,NULL,NULL,&timeout);
+    switch (res) {
+        case 0:
+            printf("time out \n");
+            break;
+        case -1:
+            perror("read error");
+            return -1;
+            break;
+        default:
+            read_len = read(fd, buff, len);
+            return read_len;
+    }
+    return len;
+}
+
+void start_thread_read(int fd)
+{
+    pthread_t pid;
+    pthread_create(&pid, NULL, thread_read, &fd);
 }
 
 void usart_close(const int fd)

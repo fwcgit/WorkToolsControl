@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		87041F472043D9F400F53CF5 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 87041F462043D9F400F53CF5 /* main.c */; };
 		87041F502043DBBC00F53CF5 /* usart.c in Sources */ = {isa = PBXBuildFile; fileRef = 87041F4F2043DBBC00F53CF5 /* usart.c */; };
+		877FEF362045069F00AC4C07 /* usart_read_thread.c in Sources */ = {isa = PBXBuildFile; fileRef = 877FEF352045069F00AC4C07 /* usart_read_thread.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		87041F462043D9F400F53CF5 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		87041F4E2043DA8000F53CF5 /* usart.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = usart.h; sourceTree = "<group>"; };
 		87041F4F2043DBBC00F53CF5 /* usart.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = usart.c; sourceTree = "<group>"; };
+		877FEF342045069F00AC4C07 /* usart_read_thread.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = usart_read_thread.h; sourceTree = "<group>"; };
+		877FEF352045069F00AC4C07 /* usart_read_thread.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = usart_read_thread.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +74,8 @@
 			children = (
 				87041F4E2043DA8000F53CF5 /* usart.h */,
 				87041F4F2043DBBC00F53CF5 /* usart.c */,
+				877FEF342045069F00AC4C07 /* usart_read_thread.h */,
+				877FEF352045069F00AC4C07 /* usart_read_thread.c */,
 			);
 			name = usart;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				877FEF362045069F00AC4C07 /* usart_read_thread.c in Sources */,
 				87041F472043D9F400F53CF5 /* main.c in Sources */,
 				87041F502043DBBC00F53CF5 /* usart.c in Sources */,
 			);
